@@ -39,4 +39,13 @@ class StatefulDecorator:
         self.state=0
     def __call__(self, *args, **kwargs):
         self.state+=1
-        print(func)
+        return self.func(*args, **kwargs)
+
+
+@StatefulDecorator
+def  my_function():
+    print("inside the function")
+
+
+my_function()
+my_function()
